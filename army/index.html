@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.0.4/scrollama.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+  </head>
+
+  <body>
+    <div class="title-content">
+      <div class="body-text">
+        <h1>Why does the US pay so much for the defense of its allies?</h1>
+
+        <h3>By Amos Abba</h3>
+      </div>
+    </div>
+    <div class="body-text">
+      <p>Officially the longest war in US history was concluded in August 31, 2021, after US soldiers withdrew from Kabul airport and their military operations were shut down in the war-torn region.</p><p>
+        The US had deployed an estimated 800,000 troops operated in Afghanistan, across 10 militry bases during the conflict that spanned a 20-year period.
+        However, the US seeks to expand its global military presence by establishing more military bases with renewed efforts to add four military bases in the Philippines to it existing number of military bases globally.</p>
+    </div>
+    <section id="scrolly" class="scrolly-container">
+      <div class="sticky-thing">
+        <img src="army.jpeg">
+      </div>
+
+      <div class="steps-container">
+        <div class="step">
+          <p>The US currently operates at least 750 military bases in at least 80 countries as of July 2021, though the actual number may be even higher as not all US military data is published by the Pentagon.</p>
+        </div>
+        <div class="step" id="step2">
+          <p>US military base sites are categorized into two groups which include Bases and Lily pads. Bases are military installations that are larger than 4 hectares (10 acres) or worth more than $10 million with over 200 US military personnel.</p>
+        </div>
+        <div class="step" id="step3">
+          <p>While Lily pads are bases smaller than 4 hectares(10 acres) or have a value of less than $10 million. It includes cooperative security locations and forward operating sites which  accounts for 40 percent of US foreign bases.</p>
+        </div>
+        <div class="step" id="step4">
+          <p>Data obtained from the Conflict Management and Peace Science Journal indicates that global US military deployment has about 173,000 troops in 159 countries as of 2020.</p>
+        </div>
+        <div class="step" id="step5">
+          <p>In the last 20 years, the US has spent $8 trillion on its so-called “global war on terror” according to the Costs of War project at Brown University. 
+            The war in Afghanistan accounts for $2.3 trillion, according to Brown University researchers, is more than $300 million a day for 20 years.</p>
+        </div>
+      </div>
+    </section>
+    <div class="body-text">
+      <p>In 2020, the US spent $778bn on its military – the largest military spender in the world and more than the next 10 countries combined – according to the Stockholm International Peace Research Institute (SIPRI).</p><p>
+        The period following the 9/11 attacks, and the declaration of war on both Afghanistan in 2001 and Iraq in 2003, saw a large spike in troops abroad. At least 800,000 Americans served in Afghanistan and more than 1.5 million in Iraq over the past 20 years.
+        The human cost of the US wars is estimated to have killed more than 900,000 people – mostly civilians.</p>
+    </div>
+
+    <script>
+      
+      //  scrollytelling code goes here
+      d3.select("#step2").on('stepin', function() {
+        d3.select("img").attr("src", "USbase.jpg")
+      })
+
+      d3.select("#step3").on('stepin', function() {
+        d3.select("img").attr("src", "army.jpeg")
+      })
+
+      d3.select("#step4").on('stepin', function() {
+        d3.select("img").attr("src", "USbase.jpg")
+      })
+
+    </script>
+
+    <script>
+      const scroller = scrollama()
+
+      scroller
+        .setup({
+          step: "#scrolly .steps-container .step",
+          offset: 0.75,
+          debug: true,
+        })
+        .onStepEnter(function ({ element, index, direction }) {
+          const event = new CustomEvent("stepin", { detail: { direction: direction } })
+          element.dispatchEvent(event)
+        })
+        .onStepExit(function ({ element, index, direction }) {
+          const event = new CustomEvent("stepout", { detail: { direction: direction } })
+          element.dispatchEvent(event)
+        })
+
+      window.addEventListener("resize", scroller.resize)
+    </script>
+  </body>
+</html>
