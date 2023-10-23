@@ -256,3 +256,14 @@ text-decoration: none;
 text-decoration: underline;
 font-size: 25px;
 }
+
+#more-stories {
+display: none;
+}
+
+/* center button inside container */
+.button-container {
+    margin: auto;
+    padding: auto;
+    text-align: center;
+}
