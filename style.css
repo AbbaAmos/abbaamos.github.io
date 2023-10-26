@@ -263,7 +263,14 @@ display: none;
 
 /* center button inside container */
 .button-container {
-    margin: auto;
-    padding: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     text-align: center;
 }
+
+
+
+    #margin: auto;
+    #padding: auto;
+    #text-align: center;
