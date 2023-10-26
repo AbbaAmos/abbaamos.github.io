@@ -265,7 +265,7 @@ display: none;
 .button-container {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     text-align: center;
 }
 
