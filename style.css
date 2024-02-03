@@ -272,3 +272,22 @@ display: none;
     /* #margin: auto;
     #padding: auto;
     #text-align: center; */
+
+.button-container button {
+    background-color: rgb(7, 7, 7);
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    }
+    
+    .button-container button:hover {
+    background-color: rgb(9, 8, 8);
+    transform: scale(1.05);
+    }
+        
